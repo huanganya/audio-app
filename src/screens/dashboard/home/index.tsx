@@ -10,15 +10,22 @@ const Home: React.FC = () => {
   const { state } = useContext(AppContext);
   const { navigate } = useNavigation();
 
-  const buttonTitle = state.isLoggedIn ? "Detail Page" : "Detail Page(Need Login)";
+  const buttonTitle = state.isLoggedIn ? "Playlist Page" : "Playlist Page(Need Login)";
   return (
     <View style={styles.container}>
-      <Text>
-        Home Page: You don't need to login to view this page: (Login Status: {`${state.isLoggedIn}`})
-      </Text>
-      <Button onPress={()=>navigate(NavigationNames.Detail)}>{buttonTitle}</Button>
-      <Button onPress={()=>navigate(NavigationNames.Info)}>Info (No Need Login)</Button>
-      <Button onPress={()=>navigate(NavigationNames.Play)}>Play (No Need Login)</Button>
+        {!state.isLoggedIn &&
+          <Text>
+            Home Page: You don't need to login to view this page: (Login Status: {`${state.isLoggedIn}`})
+          </Text>
+        }
+        {state.isLoggedIn &&
+          <Text>
+            Welcome, {state.userInfo?.username}!
+          </Text>
+        }
+        <Button onPress={()=>navigate(NavigationNames.Playlist)}>{buttonTitle}</Button>
+        <Button onPress={()=>navigate(NavigationNames.Info)}>Info (No Need Login)</Button>
+        <Button onPress={()=>navigate(NavigationNames.Play)}>Play (No Need Login)</Button>
     </View>
   );
 };

@@ -4,7 +4,8 @@ export enum NavigationNames {
   Dashboard = "Dashboard",
   Welcome = "Welcome",
   Info = "Info",
-  Detail = "Detail",
+  Playlist = "Playlist",
+  History = "History",
   Play = "Play",
-  Settings = "Settings"
+  Settings = "Settings",
 }

@@ -2,14 +2,16 @@ import React, { ReactElement } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import SettingsScreen from "../screens/dashboard/settings";
-import DetailScreen from "../screens/dashboard/detail";
+import PlaylistScreen from "../screens/dashboard/playlist";
+import HistoryScreen from "../screens/dashboard/history";
 import HomeScreen from "../screens/dashboard/home";
 import { NavigationNames } from "../constants/navigation-names";
 
 type RootStackParamList = {
   Home: undefined;
   Settings: undefined;
-  Detail: undefined;
+  Playlist: undefined;
+  History: undefined;
 };
 
 const getHeaderTitle = (route): string => {
@@ -34,10 +36,15 @@ const BottomTabStack = ({ navigation, route }): ReactElement => {
         options={{
           title: "Home"
         }}/>
-      <Tab.Screen name={NavigationNames.Detail}
-        component={DetailScreen}
+      <Tab.Screen name={NavigationNames.Playlist}
+        component={PlaylistScreen}
         options={{
-          title: "Detail"
+          title: "Playlist"
+        }}/>
+      <Tab.Screen name={NavigationNames.History}
+        component={HistoryScreen}
+        options={{
+          title: "History"
         }}/>
       <Tab.Screen name={NavigationNames.Settings}
         component={SettingsScreen}
