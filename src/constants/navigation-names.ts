@@ -5,5 +5,6 @@ export enum NavigationNames {
   Welcome = "Welcome",
   Info = "Info",
   Detail = "Detail",
+  Play = "Play",
   Settings = "Settings"
 }

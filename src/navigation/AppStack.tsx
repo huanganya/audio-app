@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabStack from "./BottomTabStack";
-import HomeScreen from "../screens/dashboard/home";
+import PlayScreen from "../screens/dashboard/play";
 import InfoScreen from "../screens/dashboard/info";
 import LoginScreen from "../screens/login";
 import WelcomeScreen from "../screens/welcome";
@@ -12,6 +12,8 @@ type RootStackParamList = {
   Login: undefined;
   Welcome: undefined;
   Dashboard: undefined;
+  Play: undefined;
+  Info: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -49,6 +51,13 @@ export const AppStack = (): ReactElement => {
           component={InfoScreen}
           options={{
             title: "Info"
+          }}
+        />
+        <Stack.Screen
+          name={NavigationNames.Play}
+          component={PlayScreen}
+          options={{
+            title: "Play"
           }}
         />
       </Stack.Navigator>

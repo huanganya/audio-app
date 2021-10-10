@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View } from "react-native";
+import { Button } from "@ant-design/react-native";
 import { useLogin } from "../../../hooks/useLogin";
 import { AppContext } from "../../../contexts/AppContext";
 import { LOGOUT } from "../../../types/app-reducer-actions";
@@ -13,8 +14,8 @@ const Setting: React.FC = () => {
     <View style={styles.container}>
       <Text>
         Settings Page (Login Status: {`${state.isLoggedIn}`})
-        <Button title="Logout" onPress={()=>{appDispatch({ type: LOGOUT });}}/>
       </Text>
+      <Button onPress={()=>{appDispatch({ type: LOGOUT });}}>Logout</Button>
     </View>
   );
 };

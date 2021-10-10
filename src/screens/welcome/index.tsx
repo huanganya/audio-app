@@ -9,7 +9,7 @@ const WelcomeScreen: React.FC = (): ReactElement => {
   useEffect(() => {
     const timeout = setTimeout(()=>{
       navigate(NavigationNames.Dashboard);
-    }, 10000);
+    }, 3000);
     return () => clearTimeout(timeout);
   }, [ navigate ]);
 
