@@ -8,4 +8,5 @@ export enum NavigationNames {
   History = "History",
   Play = "Play",
   Settings = "Settings",
+  Register = "Register",
 }

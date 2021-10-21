@@ -1,29 +1,99 @@
-import React, { useContext } from "react";
-import { Text, View } from "react-native";
+import React, { FC } from "react";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Button } from "@ant-design/react-native";
-import { AppContext } from "../../contexts/AppContext";
-import { LOGIN } from "../../types/app-reducer-actions";
+import { useFormik, FormikProvider } from "formik";
+import { Button, WhiteSpace } from "@ant-design/react-native";
 import { NavigationNames } from "../../constants/navigation-names";
+import { ApiRequestStatus } from "../../constants/api-request-status";
+import { useLoginEffect } from "./useLoginEffect";
+import { FormInput } from "../../components/form-input";
+import { emailValidator, passwordValidator } from "../../utils/validators";
+import { ScrollContainer } from "../../components/scroll-container";
 import styles from "./styles";
 
-const Login: React.FC = () => {
+const Login: FC = () => {
+  const { loginUser, status } = useLoginEffect();
   const { navigate } = useNavigation();
-  const { state, appDispatch } = useContext(AppContext);
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: data => {
+      loginUser(data.email.toLowerCase(), data.password);
+    },
+  });
+  if (status === ApiRequestStatus.isSuccessful) {
+    setTimeout(() => {
+      navigate(NavigationNames.Dashboard);
+    }, 50);
+  }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.container}>
-        <Text style={styles.login}>Login Status : {`${state.isLoggedIn}`}</Text>
-        <Button onPress={()=>{
-          appDispatch({ type: LOGIN });
-          navigate(NavigationNames.Dashboard);
-        }}>Login</Button>
-        <Button onPress={()=>{
-          navigate(NavigationNames.Home);
-        }}>Go Home Without Login</Button>
-      </View>
-    </View>
+    <FormikProvider value={formik}>
+      <ScrollContainer>
+        <View style={styles.form}>
+          <FormInput
+            label="Email"
+            hint="Please input email"
+            name="email"
+            testId="register-email"
+            customValidator={emailValidator}
+          />
+          <FormInput
+            type="password"
+            label="Password"
+            hint="Please input password"
+            name="password"
+            testId="register-password"
+            customValidator={passwordValidator}
+          />
+          <WhiteSpace size="md" />
+          <Button
+            loading={status === ApiRequestStatus.isLoading}
+            disabled={
+              !(formik.dirty && formik.isValid) ||
+              status === ApiRequestStatus.isLoading
+            }
+            onPress={formik.handleSubmit}
+            type="primary">
+            Login
+          </Button>
+          <WhiteSpace size="md" />
+          <Button
+            onPress={() => {
+              navigate(NavigationNames.Home);
+            }}>
+            Go Home Without Login
+          </Button>
+          <WhiteSpace size="md" />
+          <Button
+            type="ghost"
+            onPress={() => {
+              navigate(NavigationNames.Register);
+            }}>
+            Register
+          </Button>
+          <WhiteSpace size="md" />
+          <Button type="ghost" size="small" onPress={() => {}}>
+            Login with Facebook
+          </Button>
+          <WhiteSpace size="md" />
+          <Button type="ghost" size="small" onPress={() => {}}>
+            Login with Twitter
+          </Button>
+          <WhiteSpace size="md" />
+          <Button type="ghost" size="small" onPress={() => {}}>
+            Login with Gmail
+          </Button>
+          <WhiteSpace size="md" />
+          <Button type="ghost" size="small" onPress={() => {}}>
+            Login with Wechat
+          </Button>
+          <WhiteSpace size="md" />
+        </View>
+      </ScrollContainer>
+    </FormikProvider>
   );
 };
 

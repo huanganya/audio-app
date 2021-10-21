@@ -1,6 +1,8 @@
-const ApiConfig = {
-  BASE_URL: "http://my-nodejs-bff.com/",
-  LOGIN: "api/login"
-};
+import { BFF_URL } from "@env";
+class Config {
+  public get apiBaseUrl(): string {
+    return BFF_URL;
+  }
+}
 
-export default ApiConfig;
+export default new Config();

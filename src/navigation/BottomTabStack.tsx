@@ -14,43 +14,51 @@ type RootStackParamList = {
   History: undefined;
 };
 
-const getHeaderTitle = (route): string => {
+const getOptions = (route): string => {
   const routeName = getFocusedRouteNameFromRoute(route);
-
-  return routeName ?? "";
+  const headerShown =
+    routeName !== undefined && routeName !== NavigationNames.Home;
+  return {
+    headerTitle: routeName ?? "",
+    headerShown,
+  };
 };
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
 const BottomTabStack = ({ navigation, route }): ReactElement => {
   React.useLayoutEffect(() => {
-    navigation.setOptions({ headerTitle: getHeaderTitle(route)
-    });
-  }, [ navigation, route ]);
+    navigation.setOptions(getOptions(route));
+  }, [navigation, route]);
 
   return (
-    <Tab.Navigator initialRouteName={"Home"}
-    >
-      <Tab.Screen name={NavigationNames.Home}
+    <Tab.Navigator initialRouteName={"Home"}>
+      <Tab.Screen
+        name={NavigationNames.Home}
         component={HomeScreen}
-        options={{
-          title: "Home"
-        }}/>
-      <Tab.Screen name={NavigationNames.Playlist}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name={NavigationNames.Playlist}
         component={PlaylistScreen}
         options={{
-          title: "Playlist"
-        }}/>
-      <Tab.Screen name={NavigationNames.History}
+          title: "Playlist",
+        }}
+      />
+      <Tab.Screen
+        name={NavigationNames.History}
         component={HistoryScreen}
         options={{
-          title: "History"
-        }}/>
-      <Tab.Screen name={NavigationNames.Settings}
+          title: "History",
+        }}
+      />
+      <Tab.Screen
+        name={NavigationNames.Settings}
         component={SettingsScreen}
         options={{
-          title: "Settings"
-        }}/>
+          title: "Settings",
+        }}
+      />
     </Tab.Navigator>
   );
 };

@@ -14,6 +14,8 @@
 		4D8924BA0E75AD8FEFC25FEC /* libPods-starter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5411EA1A1A9FBF20702133D /* libPods-starter.a */; };
 		769B13E37157CC225C200DB9 /* libPods-starter-starterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C3EB65D4DDF37F32CF3C22 /* libPods-starter-starterTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F0AC80CEC3324F1090196ADA /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9669ECFBA06C4F7DBA845B5E /* antfill.ttf */; };
+		F382EA67037C41FDB79AAC7A /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C76445883149B5834D86CB /* antoutline.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,10 @@
 		6380DA9E108DD561F30AD3C1 /* Pods-starter-starterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starter-starterTests.release.xcconfig"; path = "Target Support Files/Pods-starter-starterTests/Pods-starter-starterTests.release.xcconfig"; sourceTree = "<group>"; };
 		6714FE58BD3310A8ED341F09 /* Pods-starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starter.debug.xcconfig"; path = "Target Support Files/Pods-starter/Pods-starter.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = starter/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9669ECFBA06C4F7DBA845B5E /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		9DA2E65FB2FC3D85825B9BEC /* Pods-starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starter.release.xcconfig"; path = "Target Support Files/Pods-starter/Pods-starter.release.xcconfig"; sourceTree = "<group>"; };
 		A0C3EB65D4DDF37F32CF3C22 /* libPods-starter-starterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starter-starterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7C76445883149B5834D86CB /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		D43AD0A9557CD35E97F2C388 /* Pods-starter-starterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starter-starterTests.debug.xcconfig"; path = "Target Support Files/Pods-starter-starterTests/Pods-starter-starterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5411EA1A1A9FBF20702133D /* libPods-starter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -118,6 +122,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4ECEFA04760C4C458E5C3856 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9669ECFBA06C4F7DBA845B5E /* antfill.ttf */,
+				B7C76445883149B5834D86CB /* antoutline.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +148,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				244F76ECE4F9D42F4415AFD7 /* Pods */,
+				4ECEFA04760C4C458E5C3856 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -245,6 +260,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F0AC80CEC3324F1090196ADA /* antfill.ttf in Resources */,
+				F382EA67037C41FDB79AAC7A /* antoutline.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

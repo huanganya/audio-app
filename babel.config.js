@@ -1,21 +1,38 @@
 module.exports = {
-  presets: [ "module:metro-react-native-babel-preset" ],
-  env: {
-    production: {
-      plugins: [ "react-native-paper/babel" ]
-    }
-  },
+  presets: ["module:metro-react-native-babel-preset"],
   plugins: [
     [
-      require.resolve("babel-plugin-module-resolver"),
+      "module-resolver",
       {
-        cwd: "babelrc",
-        extensions: [ ".ts", ".tsx", ".js", ".ios.js", ".android.js" ],
+        root: ["."],
+        extensions: [".ios.js", ".android.js", ".js", ".ts", ".tsx", ".json"],
         alias: {
-          app: "./app"
-        }
-      }
+          "@root": "./",
+          "@src": "./src",
+          "@mock": "./__mocks__",
+          "@test": "./__test__",
+        },
+      },
     ],
-    "jest-hoist"
-  ]
+    [
+      "module:react-native-dotenv",
+      {
+        allowUndefined: true,
+        blacklist: null,
+        moduleName: "@env",
+        path: ".env",
+        safe: false,
+        whitelist: null,
+      },
+    ],
+    ["@babel/plugin-proposal-decorators",
+    {
+      "legacy": true
+    }],
+    ["@babel/proposal-class-properties",
+    {
+      "loose": false
+    }]
+  ],
+  "sourceMaps": true
 };

@@ -1,49 +1,48 @@
-import {
-  ApiActions,
-  ApiState,
-  ApiActionState
-} from "../types/api-reducer-actions";
+import { ApiRequestStatus } from "../constants/api-request-status";
 
-const initialState = {
-  currentState: ApiActionState.REQUEST_INIT,
+export interface ApiState<T> {
+  data: T | null;
+  status: ApiRequestStatus;
+  error? : any
+}
+
+export const initialState = {
+  status: ApiRequestStatus.none,
   data: null
 };
 
-const reducer = <T>(
-  state: ApiState<T> = initialState,
-  action: ApiActions<T> = { type: ApiActionState.REQUEST_INIT },
-): ApiState<T> => {
+export interface ApiActions<T> {
+  type: string;
+  payload?: T | any;
+}
+
+// actions
+export const fetching = (): ApiActions<null> => ({ type: FETCHING });
+export const success = <T>(response: T):ApiActions<T> => ({ type: SUCCESS, payload: response });
+export const sucessNoContent = (): ApiActions<null> => ({ type: SUCCESS });
+export const error = <T>(err: T):ApiActions<T> => ({ type: ERROR, payload: err });
+
+// ACTIONS TYPE
+export const SUCCESS = "SUCCESS";
+export const ERROR = "ERROR";
+export const FETCHING = "FETCHING";
+export const SUCCESS_NO_CONTENT = "SUCCESS_NO_CONTENT";
+
+export const reducer = <T>(state: ApiState<T> = initialState, action: ApiActions<T>): ApiState<T> => {
   switch (action.type) {
-    case ApiActionState.REQUEST_INIT: {
-      return { ...state, currentState: ApiActionState.REQUEST_INIT };
+    case FETCHING: {
+      return { ...state, status: ApiRequestStatus.isLoading };
     }
-    case ApiActionState.REQUEST_START: {
-      return { ...state, currentState: ApiActionState.REQUEST_START };
+    case SUCCESS: {
+      return { status: ApiRequestStatus.isSuccessful, data: action.payload };
     }
-    case ApiActionState.REQUEST_SUCCESS: {
-      return {
-        ...state,
-        currentState: ApiActionState.REQUEST_SUCCESS,
-        data: action.payload
-      };
+    case ERROR: {
+      return { ...state, status: ApiRequestStatus.isFailed, error: action.payload };
     }
-    case ApiActionState.REQUEST_FAILURE: {
-      const payload = action.payload;
-      const newState = {
-        ...state,
-        currentState: ApiActionState.REQUEST_FAILURE
-      };
-      return payload ? { ...newState, data: payload } : newState;
-    }
-    case ApiActionState.TOKEN_EXPIRED: {
-      return { ...state, currentState: ApiActionState.TOKEN_EXPIRED };
-    }
-    case ApiActionState.NO_INTERNET: {
-      return { ...state, currentState: ApiActionState.NO_INTERNET };
+    case SUCCESS_NO_CONTENT: {
+      return { ...state, status: ApiRequestStatus.isSuccessful };
     }
     default:
       return state;
   }
 };
-
-export default { reducer, initialState };

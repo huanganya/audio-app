@@ -6,6 +6,7 @@ import PlayScreen from "../screens/dashboard/play";
 import InfoScreen from "../screens/dashboard/info";
 import LoginScreen from "../screens/login";
 import WelcomeScreen from "../screens/welcome";
+import RegisterScreen from "../screens/register";
 import { NavigationNames } from "../constants/navigation-names";
 
 type RootStackParamList = {
@@ -14,6 +15,7 @@ type RootStackParamList = {
   Dashboard: undefined;
   Play: undefined;
   Info: undefined;
+  Register: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -25,39 +27,48 @@ export const AppStack = (): ReactElement => {
         initialRouteName={"Welcome"}
         screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
+          name={NavigationNames.Welcome}
+          component={WelcomeScreen}
+          options={{
+            headerShown: false,
+            // title: "Welcome",
+          }}
+        />
+        <Stack.Screen
           name={NavigationNames.Login}
           component={LoginScreen}
           options={{
             title: "Login",
-            headerLeft: () => null
+            headerLeft: () => null,
           }}
         />
         <Stack.Screen
-          name={NavigationNames.Welcome}
-          component={WelcomeScreen}
+          name={NavigationNames.Register}
+          component={RegisterScreen}
           options={{
-            title: "Welcome"
+            title: "Register",
           }}
         />
         <Stack.Screen
           name={NavigationNames.Dashboard}
           component={BottomTabStack}
           options={{
-            headerLeft: () => null
+            headerLeft: () => null,
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name={NavigationNames.Info}
           component={InfoScreen}
           options={{
-            title: "Info"
+            title: "Info",
           }}
         />
         <Stack.Screen
           name={NavigationNames.Play}
           component={PlayScreen}
           options={{
-            title: "Play"
+            title: "Play",
           }}
         />
       </Stack.Navigator>

@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-=======
 # react-native-starter
+
 react-native start with functional programming/hooks.
 It has the flow of Welcome Page -> Dashboard -> Login -> Dashbaord
-                                             |
-                                             |
-                                              -> Other Pages No Need Login
->>>>>>> main
+|
+|
+-> Other Pages No Need Login
+
 # Get Started
 
 ## Procedures:
@@ -15,7 +14,7 @@ It has the flow of Welcome Page -> Dashboard -> Login -> Dashbaord
 
 git clone this repo and install the NPM dependencies by
 
-command: `git clone https://github.com/huanganya/react-native-starter && cd react-native-starter`
+command: `git clone https://github.com/huanganya/audio-app && cd /audio-app`
 
 ### Step 2:
 
@@ -36,4 +35,5 @@ command `cd ios && pod install && cd ..` in the project root folder
 command: `npm run ios`
 
 #### for android:
+
 command: `npm run android`

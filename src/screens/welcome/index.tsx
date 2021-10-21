@@ -7,11 +7,11 @@ import styles from "./styles";
 const WelcomeScreen: React.FC = (): ReactElement => {
   const { navigate } = useNavigation();
   useEffect(() => {
-    const timeout = setTimeout(()=>{
+    const timeout = setTimeout(() => {
       navigate(NavigationNames.Dashboard);
-    }, 3000);
+    }, 10000);
     return () => clearTimeout(timeout);
-  }, [ navigate ]);
+  }, [navigate]);
 
   return (
     <View style={styles.container}>

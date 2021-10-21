@@ -6,7 +6,7 @@ export const LOGIN = "LOGIN";
 
 export interface AppState {
   isLoggedIn: boolean;
-  userInfo: UserInfo | null
+  userInfo?: UserInfo
 }
 
 export interface AppLogoutAction<T> {
