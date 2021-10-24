@@ -2,12 +2,12 @@ import React, { ReactElement } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabStack from "./BottomTabStack";
-import PlayScreen from "../screens/dashboard/play";
-import InfoScreen from "../screens/dashboard/info";
-import LoginScreen from "../screens/login";
-import WelcomeScreen from "../screens/welcome";
-import RegisterScreen from "../screens/register";
-import { NavigationNames } from "../constants/navigation-names";
+import PlayScreen from "@src/screens/dashboard/play";
+import InfoScreen from "@src/screens/dashboard/info";
+import LoginScreen from "@src/screens/login";
+import WelcomeScreen from "@src/screens/welcome";
+import RegisterScreen from "@src/screens/register";
+import { NavigationNames } from "@src/constants/navigation-names";
 
 type RootStackParamList = {
   Login: undefined;

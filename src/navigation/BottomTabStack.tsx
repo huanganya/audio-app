@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import SettingsScreen from "../screens/dashboard/settings";
-import PlaylistScreen from "../screens/dashboard/playlist";
-import HistoryScreen from "../screens/dashboard/history";
-import HomeScreen from "../screens/dashboard/home";
-import { NavigationNames } from "../constants/navigation-names";
+import SettingsScreen from "@src/screens/dashboard/settings";
+import PlaylistScreen from "@src/screens/dashboard/playlist";
+import HistoryScreen from "@src/screens/dashboard/history";
+import HomeScreen from "@src/screens/dashboard/home";
+import { NavigationNames } from "@src/constants/navigation-names";
 
 type RootStackParamList = {
   Home: undefined;

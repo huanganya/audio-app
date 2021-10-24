@@ -1,10 +1,10 @@
-import encryptPassword from "../../utils/encryption";
+import encryptPassword from "@src/utils/encryption";
 import { useCallback, useContext, useEffect } from "react";
-import userService from "../../api/user-service";
-import { useSendApiRequest } from "../../hooks/useSendApiRequest";
-import { ApiRequestStatus } from "../../constants/api-request-status";
-import { AppContext } from "../../contexts/AppContext";
-import { LOGIN } from "../../reducers/app-reducer-actions";
+import userService from "@src/api/user-service";
+import { useSendApiRequest } from "@src/hooks/useSendApiRequest";
+import { ApiRequestStatus } from "@src/constants/api-request-status";
+import { AppContext } from "@src/contexts/AppContext";
+import { LOGIN } from "@src/reducers/app-reducer-actions";
 
 export const useRegisterEffect = (): {
   registerUser: (

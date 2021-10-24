@@ -1,4 +1,4 @@
-import { UserInfo } from "../types/user";
+import { UserInfo } from "@src/types/user";
 import { AppActions, AppState, LOGIN } from "./app-reducer-actions";
 
 export const initialState: AppState = {

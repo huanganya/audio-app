@@ -3,8 +3,8 @@
  */
 import React, { ReactElement } from "react";
 import * as Antd from "@ant-design/react-native";
-import { AppStack } from "./navigation/AppStack";
-import { AppProvider } from "./contexts/AppContext";
+import { AppStack } from "@src/navigation/AppStack";
+import { AppProvider } from "@src/contexts/AppContext";
 
 const App = (): ReactElement => {
   return (

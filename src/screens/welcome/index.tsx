@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect } from "react";
 import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { NavigationNames } from "../../constants/navigation-names";
+import { NavigationNames } from "@src/constants/navigation-names";
 import styles from "./styles";
 
 const WelcomeScreen: React.FC = (): ReactElement => {

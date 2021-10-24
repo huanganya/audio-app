@@ -1,14 +1,14 @@
-import { ApiRequestStatus } from "../constants/api-request-status";
+import { ApiRequestStatus } from "@src/constants/api-request-status";
 
 export interface ApiState<T> {
   data: T | null;
   status: ApiRequestStatus;
-  error? : any
+  error?: any;
 }
 
 export const initialState = {
   status: ApiRequestStatus.none,
-  data: null
+  data: null,
 };
 
 export interface ApiActions<T> {
@@ -18,9 +18,15 @@ export interface ApiActions<T> {
 
 // actions
 export const fetching = (): ApiActions<null> => ({ type: FETCHING });
-export const success = <T>(response: T):ApiActions<T> => ({ type: SUCCESS, payload: response });
+export const success = <T>(response: T): ApiActions<T> => ({
+  type: SUCCESS,
+  payload: response,
+});
 export const sucessNoContent = (): ApiActions<null> => ({ type: SUCCESS });
-export const error = <T>(err: T):ApiActions<T> => ({ type: ERROR, payload: err });
+export const error = <T>(err: T): ApiActions<T> => ({
+  type: ERROR,
+  payload: err,
+});
 
 // ACTIONS TYPE
 export const SUCCESS = "SUCCESS";
@@ -28,7 +34,10 @@ export const ERROR = "ERROR";
 export const FETCHING = "FETCHING";
 export const SUCCESS_NO_CONTENT = "SUCCESS_NO_CONTENT";
 
-export const reducer = <T>(state: ApiState<T> = initialState, action: ApiActions<T>): ApiState<T> => {
+export const reducer = <T>(
+  state: ApiState<T> = initialState,
+  action: ApiActions<T>,
+): ApiState<T> => {
   switch (action.type) {
     case FETCHING: {
       return { ...state, status: ApiRequestStatus.isLoading };
@@ -37,7 +46,11 @@ export const reducer = <T>(state: ApiState<T> = initialState, action: ApiActions
       return { status: ApiRequestStatus.isSuccessful, data: action.payload };
     }
     case ERROR: {
-      return { ...state, status: ApiRequestStatus.isFailed, error: action.payload };
+      return {
+        ...state,
+        status: ApiRequestStatus.isFailed,
+        error: action.payload,
+      };
     }
     case SUCCESS_NO_CONTENT: {
       return { ...state, status: ApiRequestStatus.isSuccessful };

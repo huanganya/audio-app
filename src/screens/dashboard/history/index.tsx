@@ -1,8 +1,8 @@
 import React from "react";
-import { useLogin } from "../../../hooks/useLogin";
+import { useLogin } from "@src/hooks/useLogin";
 import List from "@ant-design/react-native/lib/list";
 import Item, { Brief } from "@ant-design/react-native/lib/list/ListItem";
-import { ScrollContainer } from "../../../components/scroll-container";
+import { ScrollContainer } from "@src/components/scroll-container";
 import { SearchBar } from "@ant-design/react-native";
 
 const History: React.FC = () => {

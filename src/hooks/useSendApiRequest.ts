@@ -1,20 +1,27 @@
 import { useReducer } from "react";
-import { error, fetching, initialState, reducer, success } from "../reducers/api-reducer";
-import { ApiRequestStatus } from "../constants/api-request-status";
+import {
+  error,
+  fetching,
+  initialState,
+  reducer,
+  success,
+} from "@src/reducers/api-reducer";
+import { ApiRequestStatus } from "@src/constants/api-request-status";
 
 export type SendApiRequestType<T> = {
-  data: T,
+  data: T;
   status: ApiRequestStatus;
-  error?: any
+  error?: any;
 };
 
 export type SendRequest = (payload?: unknown) => Promise<void>;
 
 export type ApiService<T> = (payload?: any) => Promise<T> | never;
 
-export const useSendApiRequest = <T>(apiService: ApiService<T>):
-[ SendRequest, SendApiRequestType<T> ] => {
-  const [ state, dispatch ] = useReducer(reducer, initialState);
+export const useSendApiRequest = <T>(
+  apiService: ApiService<T>,
+): [SendRequest, SendApiRequestType<T>] => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const sendRequest = async (payload: unknown): Promise<void> => {
     dispatch(fetching());
@@ -29,9 +36,12 @@ export const useSendApiRequest = <T>(apiService: ApiService<T>):
     }
   };
 
-  return [ sendRequest, {
-    data: state.data as T,
-    status: state.status,
-    error: state.error
-  } ];
+  return [
+    sendRequest,
+    {
+      data: state.data as T,
+      status: state.status,
+      error: state.error,
+    },
+  ];
 };

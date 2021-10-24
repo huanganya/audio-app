@@ -8,8 +8,8 @@ import {
   View,
 } from "react-native";
 import { InputItem, List } from "@ant-design/react-native";
-import { generateValidator, ValidatorType } from "../../utils/validators";
-import FormError from "../form-error";
+import { generateValidator, ValidatorType } from "@src/utils/validators";
+import FormError from "@src/components/form-error";
 // import { TextInput } from "../TextInput";
 
 export interface FormFieldProps {

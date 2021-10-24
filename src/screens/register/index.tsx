@@ -2,18 +2,18 @@ import React, { FC } from "react";
 import { View } from "react-native";
 import { useFormik, FormikProvider } from "formik";
 import { useNavigation } from "@react-navigation/native";
-import { NavigationNames } from "../../constants/navigation-names";
-import { ApiRequestStatus } from "../../constants/api-request-status";
+import { NavigationNames } from "@src/constants/navigation-names";
+import { ApiRequestStatus } from "@src/constants/api-request-status";
 import { useRegisterEffect } from "./useRegisterEffect";
 import { Button } from "@ant-design/react-native";
 import {
   emailValidator,
   passwordValidator,
   userNameValidator,
-} from "../../utils/validators";
-import { FormInput } from "../../components/form-input";
+} from "@src/utils/validators";
+import { FormInput } from "@src/components/form-input";
 import styles from "./styles";
-import { ScrollContainer } from "../../components/scroll-container";
+import { ScrollContainer } from "@src/components/scroll-container";
 
 const Register: FC = () => {
   const { registerUser, status } = useRegisterEffect();

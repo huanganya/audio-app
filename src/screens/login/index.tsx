@@ -3,12 +3,12 @@ import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFormik, FormikProvider } from "formik";
 import { Button, WhiteSpace } from "@ant-design/react-native";
-import { NavigationNames } from "../../constants/navigation-names";
-import { ApiRequestStatus } from "../../constants/api-request-status";
+import { NavigationNames } from "@src/constants/navigation-names";
+import { ApiRequestStatus } from "@src/constants/api-request-status";
 import { useLoginEffect } from "./useLoginEffect";
-import { FormInput } from "../../components/form-input";
-import { emailValidator, passwordValidator } from "../../utils/validators";
-import { ScrollContainer } from "../../components/scroll-container";
+import { FormInput } from "@src/components/form-input";
+import { emailValidator, passwordValidator } from "@src/utils/validators";
+import { ScrollContainer } from "@src/components/scroll-container";
 import styles from "./styles";
 
 const Login: FC = () => {

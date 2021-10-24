@@ -1,4 +1,4 @@
-import { UserInfo } from "./user";
+import { UserInfo } from "@src/types/user";
 
 export const LOGOUT = "LOGOUT";
 export const FORCE_LOGOUT = "FORCE_LOGOUT";
@@ -6,7 +6,7 @@ export const LOGIN = "LOGIN";
 
 export interface AppState {
   isLoggedIn: boolean;
-  userInfo?: UserInfo
+  userInfo?: UserInfo;
 }
 
 export interface AppLogoutAction<T> {

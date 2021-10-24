@@ -1,8 +1,8 @@
-import { apiUserEndpoints } from "../constants/api-endpoints";
+import { apiUserEndpoints } from "@src/constants/api-endpoints";
 import { authorizedHttpClient, httpClient } from "./api-client";
-import { GenericErrorWrapper } from "../errors/error-handlers";
+import { GenericErrorWrapper } from "@src/errors/error-handlers";
 import { UserInfo, UserLoginResponse } from "../types/user";
-import SecService from "../local-services/security-service";
+import SecService from "@src/local-services/security-service";
 
 export interface UserInfoParams {
   id: string;

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Text, View } from "react-native";
 import { Button } from "@ant-design/react-native";
-import { useLogin } from "../../../hooks/useLogin";
-import { AppContext } from "../../../contexts/AppContext";
-import { LOGOUT } from "../../../reducers/app-reducer-actions";
+import { useLogin } from "@src/hooks/useLogin";
+import { AppContext } from "@src/contexts/AppContext";
+import { LOGOUT } from "@src/reducers/app-reducer-actions";
 import styles from "./styles";
 
 const Setting: React.FC = () => {

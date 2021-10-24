@@ -1,7 +1,7 @@
-import { Dashboard } from "./../types/dashboard";
-import { apiUserEndpoints } from "../constants/api-endpoints";
+import { Dashboard } from "@src/types/dashboard";
+import { apiUserEndpoints } from "@src/constants/api-endpoints";
 import { httpClient } from "./api-client";
-import { GenericErrorWrapper } from "../errors/error-handlers";
+import { GenericErrorWrapper } from "@src/errors/error-handlers";
 
 class DashboardService {
   @GenericErrorWrapper()
