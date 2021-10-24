@@ -6,7 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "update:pods": "npx pod-install ios",
     "postinstall": "npm run update:pods",
@@ -61,7 +62,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.14.0",
     "husky": "^7.0.2",
-    "jest": "^27.2.5",
+    "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
     "prettier": "^2.4.1",
     "react-dom": "^17.0.1",
@@ -70,16 +71,5 @@
   },
   "resolutions": {
     "@types/react": "^17"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
   }
 }
