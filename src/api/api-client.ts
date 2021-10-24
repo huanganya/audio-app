@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { fetch, ReactNativeSSLPinning } from "react-native-ssl-pinning";
 import NetInfo from "@react-native-community/netinfo";
 import { NetworkError } from "@src/errors/errors";

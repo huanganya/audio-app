@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { createContext, useReducer, useCallback } from "react";
+import React, { createContext, useReducer } from "react";
 import { initialState, reducer } from "@src/reducers/app-reducer";
 import { AppActions } from "@src/reducers/app-reducer-actions";
 

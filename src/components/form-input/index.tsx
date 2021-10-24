@@ -7,8 +7,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { InputItem, List } from "@ant-design/react-native";
-import { generateValidator, ValidatorType } from "@src/utils/validators";
+import { ValidatorType } from "@src/utils/validators";
 import FormError from "@src/components/form-error";
 // import { TextInput } from "../TextInput";
 

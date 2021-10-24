@@ -1,7 +1,6 @@
 import React, { useContext, FC } from "react";
-import { Text, View, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Button } from "@ant-design/react-native";
 import { AppContext } from "@src/contexts/AppContext";
 import { NavigationNames } from "@src/constants/navigation-names";
 import { useGetApiRequest } from "@src/hooks/useGetApiRequest";
